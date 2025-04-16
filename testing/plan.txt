@@ -1,0 +1,29 @@
+Testing for step 1:
+
+Visual testing:
+- Is the flip animation correct and seamless
+- Do the cards render correctly
+- Is the design consistent
+- Does the shuffling have a visual animation
+
+Unit Testing:
+- Write a test JS script
+- Test for:
+  - Card flip logic
+  - Deck initialization logic
+
+Functional Testing:
+ - Do the buttons on the screen work as intended on click?
+
+Documentation:
+
+
+
+
+Testing for step 2:
+
+
+
+
+
+Testing for step 3:
