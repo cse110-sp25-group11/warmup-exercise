@@ -3,7 +3,7 @@
 
 
 /*Moves card from the deck to the mat (spot on the left)*/
-.deck.move-to-player-mat
+.deck:hover
 {
     transform: translate(calc(100vw - 150px), calc(100vh - 150px)); /*Location of where the card will be flipped*/
     animation: left-to-right 1s ease-in; 
@@ -18,12 +18,3 @@
 
 
 
-
-/*Moves the other card from the right to the left to make room for other cards*/
-.deck.move-to-right-mat
-{
-    transform: translate(calc(100vw - 150px), calc(100vh - 150px)); /*Location of where the card will be flipped*/
-    animation: right-to-left 1s ease-in; 
-}
-
-  

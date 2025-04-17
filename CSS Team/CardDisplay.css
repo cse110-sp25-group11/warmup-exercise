@@ -20,17 +20,37 @@ body{
 }
 
 .AI-cards{
+  /*Card display and coloring*/
+  border-color: var(--beige);
+  display: flex;
+  
+  /*Border shenanigans (spacing between them, shape, coloring, etc)*/
   border-style: dotted;
   height: 35vh;
   width: 29vw;
   border-radius: 20px;
-  display: flex;
   justify-content: space-evenly;
+  
+
+  /*Position on the screen (This puts it on the top center)*/
   align-items: center;
-  border-color: var(--beige);
+  position: fixed; 
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.human-cards{
+
+.deck
+{
+  position: fixed;
+  width: 13vw;
+  height: 33vh;
+  margin: 100px auto;
+}
+
+.human-cards
+{
   border-style: dotted;
   height: 35vh;
   width: 29vw;
@@ -39,6 +59,10 @@ body{
   justify-content: space-evenly;
   align-items: center;
   border-color: var(--beige);
+  position: fixed; 
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
