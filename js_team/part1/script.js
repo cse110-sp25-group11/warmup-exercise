@@ -16,63 +16,78 @@ class Deck {
 }
 
 class Card {
-    // Assuming that we are given either AI/User/Hidden Card by type
-    constructor(value,suit, type){
-        this.value = value; 
+    /**
+     * @param {string} value - Rank of the card (e.g., A, 2, ... K)
+     * @param {string} suit - Suit of the card (heart, spade, etc.)
+     * @param {string} type - Card type: "AI", "hum", or "hidden"
+     */
+    constructor(value, suit, type) {
+        this.value = value;
         this.suit = suit;
         this.type = type;
-        this.element = createCard(suit);
+        this.element = this.createCard(); // <-- fixed here
     }
 
+    /**
+     * Returns the appropriate image path for a given suit.
+     */
     getSuitImagePath(suit) {
         switch (suit) {
             case "diamond": return "assets/diamond.png";
-            case "eart": return "assets/heart.png";
+            case "heart": return "assets/heart.png"; // fixed typo
             case "clubs": return "assets/clubs.png";
             case "spades": return "assets/spades.png";
-            default:
+            default: return "assets/hiddencard.png"; // fixed typo
         }
     }
 
+    /**
+     * Generates ID strings for different parts of the card based on its type.
+     */
     getCardElementIDs(type) {
         return {
             suitID: `card-suit-${type}`,
-            numberID: `card-number-${type}`
+            numberID: `card-number-${type}`,
+            cardID: `${type}-card`
         };
     }
 
+    /**
+     * Creates and returns a DOM element representing the card.
+     */
     createCard() {
         const card = document.createElement('div');
-        card.className = 'card';
-        let imgPath = this.getSuitImagePath(this.suit);
-        const { suitID, numberID } = this.getCardElementIDs(this.type);
+        card.className = (this.type === "hidden") ? 'hiddencard' : 'card';
 
-        if (this.type != "hidden") {
+        const imgPath = this.getSuitImagePath(this.suit);
+        const { suitID, numberID, cardID } = this.getCardElementIDs(this.type);
+        card.id = cardID;
+
+        if (this.type !== "hidden") {
             card.innerHTML = `
                 <div class="top-left-label">
-                        <h2 class="card-number" id="${numberID}>${this.value}</h2>
-                        <img class="card-suit" id="${suitID}" src=${imgPath}> 
-                        </div>
+                    <h2 class="card-number" id="${numberID}">${this.value}</h2>
+                    <img class="card-suit" id="${suitID}" src="${imgPath}" />
+                </div>
                 <div class="bottom-right-label">
-                        <img class="card-suit" id="${suitID}" src=${imgPath}> 
-                        <h2 class="card-number" id="${numberID}">${this.value}</h2>
+                    <img class="card-suit" id="${suitID}" src="${imgPath}" />
+                    <h2 class="card-number" id="${numberID}">${this.value}</h2>
                 </div>
             `;
         } else {
             card.innerHTML = `
-                <div class="hiddencard" id="hidden-card">
-                    <img src="assets/hiddencard.png" alt="Hidden Card" class="hidden-card-image">
-                </div>
+                <img src="${imgPath}" alt="Hidden Card" class="hidden-card-image" />
             `;
         }
-        
 
         return card;
     }
 
-    flip(){
+    /**
+     * Flips the card by toggling the 'flipped' class.
+     */
+    flip() {
         this.element.classList.toggle("flipped");
     }
 }
-
 
