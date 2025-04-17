@@ -10,53 +10,77 @@
         <img>
     </div>
     <!-- This will be a div encapsulating the all the contents of the game-->
-     <div class="AI-cards">
-        <!--These will be the AI's cards-->
-        <div class="card" id="AI-card-1">
-            <div class="top-left-label">
-                <h2 class="card-number" id="card-number-AI-1">A</h2>
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-            </div>
-            <div class="bottom-right-label">
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-                <h2 class="card-number" id="card-number-AI-1">A</h2>
-            </div>
+    <div>
+        <!--This div is for the container where AI cards will be-->
+        <div class="AI-cards">
+            
+            <!-- Template for CARDS
+                <div class="card" id="AI-card">
+                    <div class="top-left-label">
+                        <h2 class="card-number" id="card-number-AI">A</h2>
+                        <img class="card-suit" id="card-suit-AI"> Suit of card i.e Spades, Diamonds
+                    </div>
+                    <div class="bottom-right-label">
+                        <img class="card-suit" id="card-suit-AI"> Suit of card i.e Spades, Diamonds
+                        <h2 class="card-number" id="card-number-AI">A</h2>
+                    </div>
+                </div>
+            -->
+            
+            <!-- Template for Hidden Cards (face not shown)
+                <div class="hiddencard" id="hidden-card">
+                    <img src="assets/hiddencard.png" alt="Hidden Card" class="hidden-card-image">
+                </div>
+            -->
         </div>
-        <div class="card" id="AI-card-2">
-            <div class="top-left-label">
-                <h2 class="card-number" id="card-number-AI-2">A</h2>
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
+
+        <!--The counter for AI-->
+        <div class="counter-AI" id="counter-AI"> 11 </div>
+
+        <button class="playbutton">PLAY</button>
+
+        <div class="counter-AI" id="counter-human"> 11 </div>
+
+        <div>
+            <!--This will be the Stand Button-->
+            <div class="stand-hum">
+                <button class="stand-button"><img src="assets/standicon.png"></button>
+                <br />
+                STAND
             </div>
-            <div class="bottom-right-label">
-                <img class="card-suit" id="card-sui-AI-2"> <!--Suit of card i.e Spades, Diamonds-->
-                <h2 class="card-number" id="card-number-AI-2">A</h2>
+            
+            <!--This div is for the container where Human cards will be-->
+            <div class="human-cards">
+                <!-- Template for CARDS
+                    <div class="card" id="hum-card">
+                        <div class="top-left-label">
+                            <h2 class="card-number" id="card-number-hum">A</h2>
+                            <img class="card-suit" id="card-suit-hum"> Suit of card i.e Spades, Diamonds
+                        </div>
+                        <div class="bottom-right-label">
+                            <img class="card-suit" id="card-suit-hum"> Suit of card i.e Spades, Diamonds
+                            <h2 class="card-number" id="card-number-hum">A</h2>
+                        </div>
+                    </div>
+                -->
+            </div>
+
+            <!--This will be the Hit Button-->
+            <div class="hit-hum">
+                <button class="hit-button"><img src="assets/hiticon.png"></button>
+                <br />
+                HIT
             </div>
         </div>
     </div>
-    <div class="human-cards">
-        <!--These will be the Human's cards-->
-        <div class="card" id="human-card-1">
-            <div class="top-left-label">
-                <h2 class="card-number" id="card-number-hum-1">A</h2>
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-            </div>
-            <div class="bottom-right-label">
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-                <h2 class="card-number" id="card-number-hum-1">A</h2>
-            </div>
-        </div>
-        <div class="card" id="human-card-2">
-            <div class="top-left-label">
-                <h2 class="card-number" id="card-number-hum-2">A</h2>
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-            </div>
-            <div class="bottom-right-label">
-                <img class="card-suit"> <!--Suit of card i.e Spades, Diamonds-->
-                <h2 class="card-number" id="card-number-hum-2">A</h2>
-            </div>
+
+    <!--This is the overlay for when the game is over-->
+    <div id="overlay" class="hidden">
+        <div class="overlay-content">
+            <h2>You win!</h2> <!-- Change text based on the status (win/lose/tie)-->
+            <button onclick="hideOverlay()"></button>
         </div>
     </div>
-    <p>This is a basic HTML file structure.</p>
 
 
 </body>
