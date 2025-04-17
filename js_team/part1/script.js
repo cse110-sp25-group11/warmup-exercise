@@ -2,8 +2,21 @@
 
 class Deck {
     
+    /**
+     * Create a deck of 52 cards
+     */
     constructor(){
         this.cards = []; 
+        this.element = null;
+        this.initialize();
+        this.createDeckElement;
+    }
+
+    /**
+     * Initialize deck with 52 cards
+     */
+    initialize() {
+        this.cards = []; // clear if any existing cards
         const suits = ["diamond", "heart", "clubs", "spades"]; // 4 suites
         const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; // 13 ranks
 
@@ -13,6 +26,24 @@ class Deck {
                 this.cards.push(new Card(value, suit, "hidden"));
             }
         }
+    }
+
+    /**
+     * Creates DOM element representing the deck
+     */
+    createDeckElement() {
+        this.element = document.createElement('div');
+        this.element.className = 'deck';
+
+        // deck image for back of cards
+        const deckImage = document.createElement('img');
+        deckImage.src = 'assets/hiddencard.png';
+        deckImage.alt = 'Card Deck'
+        deckImage.className = 'deck-image';
+
+        this.element.appendChild(deckImage);
+
+        return this.element;
     }
 
 
@@ -28,6 +59,28 @@ class Deck {
         
         const randomIndex = Math.floor(Math.random() * this.cards.length);
         return this.cards.splice(randomIndex, 1)[0];  // Remove and return the card
+    }
+
+    shuffle() {
+        this.animateShuffle().then(() => {
+            this.performShuffle();
+        })
+    }
+
+    performShuffle(){
+
+    } // fisher-yates
+    
+    /**
+     * 
+     * @param {HTMLElement} container - container to render deck in
+     */
+    render(container){
+        if(container) {
+            container.append(this.element);
+        } else { 
+            console.warn("No container provided to render deck");
+        }
     }
 
 }
