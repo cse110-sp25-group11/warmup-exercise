@@ -27,7 +27,7 @@ body
   display: flex;
 }
 
-.hiddencard
+.hidden-card
 {
   background-color: var(--light-blue);
   height: 33vh;
@@ -46,7 +46,7 @@ body
   /*Border shenanigans (spacing between them, shape, coloring, etc)*/
   border-style: dotted;
   height: 35vh;
-  width: 60vw;
+  width: 29vw;
   border-radius: 20px;
   justify-content: space-evenly;
   
@@ -105,7 +105,7 @@ body
 .hit-button
 {
   position: fixed;
-  left: calc(50% - 250px);
+  left: calc(50% - 750px);
   top: calc(50% + 150px);
 }
 
@@ -121,14 +121,14 @@ body
 .hit-button
 {
   position: fixed;
-  left: calc(50% - 250px);
+  left: calc(50% - 350px);
   top: calc(50% + 150px);
 }
 
 .hit-hum
 {
   position: fixed;
-  left: calc(50% - 230px);
+  left: calc(50% - 330px);
   top: calc(50% + 200px);
 }
 
@@ -136,14 +136,14 @@ body
 .stand-button
 {
   position: fixed;
-  right: calc(50% - 250px);
+  right: calc(50% - 350px);
   top: calc(50% + 150px);
 }
 
 .stand-hum
 {
   position: fixed;
-  right: calc(50% - 240px);
+  right: calc(50% - 340px);
   top: calc(50% + 210px);
 }
 
