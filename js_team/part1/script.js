@@ -3,14 +3,31 @@
 class Deck {
     
     constructor(){
-        
+        this.cards = []; 
+        const suits = ["diamond", "heart", "clubs", "spades"]; // 4 suites
+        const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]; // 13 ranks
+
+        // Generate 52 card objects and store them in the array
+        for (let suit of suits) {
+            for (let value of values) {
+                this.cards.push(new Card(value, suit, "hidden"));
+            }
+        }
     }
 
 
-    // Pick a random card that has not been choosen 
+    /**
+     * Returns random card from deck
+     */
     pickCard(){
-
-
+        // Check if the deck is empty
+        if (this.cards.length === 0) {
+            return null;  // No cards left
+        }
+        
+        
+        const randomIndex = Math.floor(Math.random() * this.cards.length);
+        return this.cards.splice(randomIndex, 1)[0];  // Remove and return the card
     }
 
 }
