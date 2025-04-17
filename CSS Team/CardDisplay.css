@@ -1,5 +1,6 @@
 /* font-family: "Poppins", sans-serif; */
-:root{
+:root
+{
   --pink: #FDCEDF;
   --light-blue: #CAE9F6;
   --light-green: #8DB596; 
@@ -10,78 +11,88 @@
 body
 {
   background-color: var(--light-green);
-  margin: 0;
+  /* margin: 0;
   height: 100vh;               
   display: flex;
   justify-content: center;     
-  align-items: center;   
+  align-items: center; **don't think we should make this flex because that will make all of the divs we have adhere to flex display*/
+}
+
+
+.deck
+{
+  position: absolute;
+  width: 250px;
+  height: 300px;
+}
+
+.deck-card
+{
+  position: absolute;
+}
+
+.deck-card:nth-child(1)
+{
+  left: 0px;
+  z-index: 1;
+}
+
+.deck-card:nth-child(2)
+{
+  left: 20px;
+  z-index: 2;
+}
+
+.deck-card:nth-child(3)
+{
+  left: 40px;
+  z-index: 3;
 }
 
 .card
 {
-  background-color: var(--beige);
-  height: 33vh;
-  width: 13vw;
-  border-radius: 20px;
-  border-width: 1px;
-  display: flex;
+  height: 250px;
+  width: 165px;
 }
 
-.hidden-card
+.open-card
 {
-  background-color: var(--light-blue);
-  height: 33vh;
-  width: 13vw;
+  background-color: var(--beige);
   border-radius: 20px;
   border-width: 1px;
   display: flex;
-
 }
 
-.AI-cards{
+.card-mat
+{
   /*Card display and coloring*/
   border-color: var(--beige);
   display: flex;
-  
+
   /*Border shenanigans (spacing between them, shape, coloring, etc)*/
   border-style: dotted;
-  height: 35vh;
-  width: 29vw;
+  height: 260px;
+  width: 400px;
   border-radius: 20px;
   justify-content: space-evenly;
-  
+  align-items: center; 
+}
 
+.AI-cards
+{
   /*Position on the screen (This puts it on the top center)*/
-  align-items: center;
   position: fixed; 
   top: 50px; 
   left: 50%;
   transform: translateX(-50%);
 }
 
-
-.deck
-{
-  position: fixed;
-  width: 13vw;
-  height: 33vh;
-  margin: 100px auto;
-}
-
 .human-cards
 {
-  border-style: dotted;
-  height: 35vh;
-  width: 29vw;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-color: var(--beige);
   position: fixed; 
   bottom: 50px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); 
 }
 
 .playbutton
@@ -89,19 +100,18 @@ body
   position: fixed;
   left: calc(50% - 100px);
   right: calc(50% - 100px); 
-  bottom: 375px;
+  bottom: 375px; 
   background-color: var(--pink);
   font-size: 18px;
   transform: translateX(-50%);
-
-
   /*Rounded corner and overall button shape*/
   padding: 15px 40px;
   border-radius: 999px;
 }
 
 
-/*HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
+/* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
+/*
 .hit-button
 {
   position: fixed;
@@ -115,10 +125,11 @@ body
   left: calc(50% - 230px);
   top: calc(50% + 200px);
 }
+*/
 
 
 /* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
-.hit-button
+/* .hit-button
 {
   position: fixed;
   left: calc(50% - 350px);
@@ -130,10 +141,10 @@ body
   position: fixed;
   left: calc(50% - 330px);
   top: calc(50% + 200px);
-}
+} */
 
 /* STAND BUTTON, MAINLY PLACEMENT AS OF NOW */
-.stand-button
+/* .stand-button
 {
   position: fixed;
   right: calc(50% - 350px);
@@ -145,8 +156,9 @@ body
   position: fixed;
   right: calc(50% - 340px);
   top: calc(50% + 210px);
+}  */
+
+.message
+{
+  font-family: "Poppins", sans-serif;
 }
-
-
-
-
