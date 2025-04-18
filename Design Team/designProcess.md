@@ -13,3 +13,18 @@ We came up with the idea of the card design by first thinking of the color theme
 - [Card Shuffling Inspo 2](https://www.youtube.com/watch?v=Ru7SeyI8E4Y)
 
 ## Step 2:
+
+1. Design the user interaction for dealing cards from the deck.
+
+
+The user interaction that we designed for dealing the cards from the deck were that we are to first have the user get a card slid to them from the initial deck on the top left, then have a card slid to the dealer in the designated region (the dotted card outline). This process would then happen again for the user to have two cards, and the dealer to have 2 cards aswell, but one of them is faced down so the user isnt able to see the value of that second card. Right above these cards, there is a pink sum button that updates the player and dealer's total/ sum of the cards values added up. After the cards are slid out to both the user and dealer, two buttons on both sides of the user's cards will be a stand and a hit button to show a choice of their next move in the game.
+
+
+2. Refine the visual styles based on initial implementation feedback.
+
+The visual styles that were refined based on the initial implementation feedback were the chips added into the black jack game, aswell as the the pink button to shows the user and dealer's total/sum of the cards added up near their own cards.
+
+
+3. Ensure the layout and interactions are responsive across different screen sizes.
+
+The design team ensured that the layout and interactions are responsive across all different website/ laptop screen sizes.
