@@ -66,16 +66,33 @@ body
 {
   height: 250px;
   width: 165px;
+  transform-style: preserve-3d;
+} 
 
+
+.card-open-card, .hiddencard
+{
+  height: 250px;
+  width: 165px;
+  display: flex; 
+  backface-visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
-.open-card
+.card-open-card
 {
   background-color: var(--beige);
   border-radius: 20px;
   border-width: 1px;
   display: flex;
 }
+
+.hiddencard
+{
+  transform: rotateY(180deg);
+} 
 
 .AI-cards
 {
@@ -136,6 +153,7 @@ body
 }
 
 
+
 /* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
 .hit-button
 {
@@ -166,21 +184,22 @@ body
   top: calc(50% + 210px);
 } 
 
+/*COUNTER POSITIONING*/
+.counter-AI
+{
+  position: fixed;
+  right: calc(50% - 340px);
+  top: calc(50% + 210px);
+}
+
+
 .message
 {
   font-family: "Poppins", sans-serif;
 }
 
-
-
-
 /*ANIMATIONS:*/
 
-.hiddencard
-{
-  transform: rotateY(180deg);
-
-}
 
 @keyframes startFlip
 {
