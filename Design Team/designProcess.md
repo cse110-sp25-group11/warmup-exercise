@@ -34,6 +34,14 @@ The user interaction that we designed for dealing the cards from the deck were t
 The visual styles that were refined based on the initial implementation feedback were the chips added into the black jack game, aswell as the the pink button to shows the user and dealer's total/sum of the cards added up near their own cards.
 
 
-1. Ensure the layout and interactions are responsive across different screen sizes.
+3. Ensure the layout and interactions are responsive across different screen sizes.
 
 The design team ensured that the layout and interactions are responsive across all different website/ laptop screen sizes.
+
+
+## Step 3:
+
+1. Design the overall layout of the Blackjack game interface.
+2. Design visual feedback mechanisms for game actions and status.
+3. Polish the visual design of the game (if you can).
+4. Plan and create a short YouTube video showcasing the game.
