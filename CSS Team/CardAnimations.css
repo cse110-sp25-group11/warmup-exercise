@@ -1,1 +1,16 @@
+/*Moves card from the deck to the mat (spot on the left)*/
+/* .deck:hover
+{
+    transform: translate(calc(100vw - 150px), calc(100vh - 150px)); Location of where the card will be flipped
+    animation: left-to-right 1s ease-in; 
+} */
+
+/* .deck.move-to-dealer-mat
+{
+    transform: translate(calc(100vw - 150px), calc(100vh - 150px)); Location of where the card will be flipped
+    animation: left-to-right 1s ease-in; 
+} */
+
+
+
 

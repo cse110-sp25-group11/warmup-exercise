@@ -1,1 +1,218 @@
+/* font-family: "Poppins", sans-serif; */
 
+/*GENERAL STARTER STUFF*/
+:root
+{
+  --pink: #FDCEDF;
+  --light-blue: #CAE9F6;
+  --light-green: #8DB596; 
+  --dark-green: #1F7D53;
+  --beige: #FAF1E6;
+  --dark-pink: #e69cb7; 
+}
+
+body
+{
+  background-color: var(--light-green);
+  /* margin: 0;
+  height: 100vh;               
+  display: flex;
+  justify-content: center;     
+  align-items: center; **don't think we should make this flex because that will make all of the divs we have adhere to flex display*/
+
+  /*Okay sounds good, we can just delete this then - Alan :)*/
+}
+
+
+/*DECK OF CARDS IN THE TOP LEFT*/
+.deck
+{
+  position: absolute;
+  width: 250px;
+  height: 300px;
+}
+
+.deck-card
+{
+  position: absolute;
+}
+
+.deck-card:nth-child(1)
+{
+  left: 0px;
+  z-index: 1;
+}
+
+.deck-card:nth-child(2)
+{
+  left: 20px;
+  z-index: 2;
+}
+
+.deck-card:nth-child(3)
+{
+  left: 40px;
+  z-index: 3;
+
+
+  /*Triggers the animation*/
+  animation: startFlip 2s forwards;  
+  transform-style: preserve-3d;
+}
+
+
+/*INDIVIDUAL CARDS*/
+.card
+{
+  height: 250px;
+  width: 165px;
+  transform-style: preserve-3d;
+} 
+
+
+.card-open-card, .hiddencard
+{
+  height: 250px;
+  width: 165px;
+  display: flex; 
+  backface-visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.card-open-card
+{
+  background-color: var(--beige);
+  border-radius: 20px;
+  border-width: 1px;
+  display: flex;
+}
+
+.hiddencard
+{
+  transform: rotateY(180deg);
+} 
+
+.AI-cards
+{
+  /*Position on the screen (This puts it on the top center)*/
+  position: fixed; 
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/*BACKGROUND FEATURES*/
+.human-cards
+{
+  position: fixed; 
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.card-mat
+{
+  /*Card display and coloring*/
+  border-color: var(--beige);
+  display: flex;
+
+  /*Border shenanigans (spacing between them, shape, coloring, etc)*/
+  border-style: dotted;
+  height: 260px;
+  width: 400px;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center; 
+}
+
+
+/*ALL BUTTONS ON THE SCREEN */ 
+.playbutton
+{
+  position: fixed;
+  left: calc(50% - 50px);
+  right: calc(50% - 65px); 
+  bottom: 375px; 
+  background-color: var(--pink);
+  font-size: 14px;
+  padding: 15px 40px;
+  border-radius: 999px;
+}
+
+/*Play button changes color when cursor hovers over it*/
+.playbutton:hover
+{
+  background-color: var(--dark-pink);
+}
+
+.playbutton:hover
+{
+  animation-name: startFlip;
+}
+
+
+
+/* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
+.hit-button
+{
+  position: fixed;
+  left: calc(50% - 350px);
+  top: calc(50% + 150px);
+}
+
+.hit-hum
+{
+  position: fixed;
+  left: calc(50% - 330px);
+  top: calc(50% + 200px);
+} 
+
+/* STAND BUTTON, MAINLY PLACEMENT AS OF NOW */
+.stand-button
+{
+  position: fixed;
+  right: calc(50% - 350px);
+  top: calc(50% + 150px);
+}
+
+.stand-hum
+{
+  position: fixed;
+  right: calc(50% - 340px);
+  top: calc(50% + 210px);
+} 
+
+/*COUNTER POSITIONING*/
+.counter-AI
+{
+  position: fixed;
+  right: calc(50% - 340px);
+  top: calc(50% + 210px);
+}
+
+
+.message
+{
+  font-family: "Poppins", sans-serif;
+}
+
+/*ANIMATIONS:*/
+
+
+@keyframes startFlip
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
