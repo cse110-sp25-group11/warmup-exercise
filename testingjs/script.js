@@ -1,5 +1,3 @@
-
-
 class Deck {
     
     /**
@@ -37,7 +35,7 @@ class Deck {
 
         // deck image for back of cards
         const deckImage = document.createElement('img');
-        deckImage.src = '../assets/hiddencard.png';
+        deckImage.src = './assets/hiddencard.png';
         deckImage.alt = 'Card Deck'
         deckImage.className = 'deck-image';
 
@@ -103,11 +101,11 @@ class Card {
      */
     getSuitImagePath(suit) {
         switch (suit) {
-            case "diamond": return "../assets/diamond.png";
-            case "heart": return "../assets/heart.png"; // fixed typo
-            case "clubs": return "../assets/clubs.png";
-            case "spades": return "../assets/spades.png";
-            default: return "../assets/hiddencard.png"; // fixed typo
+            case "diamond": return "./assets/diamond.png";
+            case "heart": return "./assets/heart.png"; // fixed typo
+            case "clubs": return "./assets/clubs.png";
+            case "spades": return "./assets/spades.png";
+            default: return "./assets/hiddencard.png"; // fixed typo
         }
     }
 
@@ -168,23 +166,30 @@ class Card {
     }
 }
 
-// const deck = new Deck();
-// deck.createDeckElement();
-// const container = document.querySelector('.deck');
-// deck.render(container);
 
-// document.querySelector(".playbutton").addEventListener("click", () => {
-//     const pickedCard = deck.pickCard();
-//     if (pickedCard) {
-//         // Render two cards on each play mat (User and Dealer)
-//     }
-// });
 
-// document.querySelector(".hit-button").addEventListener("click", () => {
-//     const pickedCard = deck.pickCard();
-//     if (pickedCard) {
-//        // Render the card where its supposed to go (User) end
-//     } else {
-//         console.log("No more cards left!");
-//     }
-// });
+// Main code, drives gameplay
+const deck = new Deck();
+deck.createDeckElement();
+const container = document.querySelector('.deck');
+deck.render(container);
+
+
+document.querySelector(".playbutton").addEventListener("click", () => {
+    const pickedCard = deck.pickCard();
+    if (pickedCard) {
+        
+    }
+});
+
+document.querySelector(".hit-button").addEventListener("click", () => {
+    const pickedCard = deck.pickCard();
+    if (pickedCard) {
+       
+    } 
+});
+
+
+document.querySelector(".stand-button").addEventListener("click", () => {
+    
+});
