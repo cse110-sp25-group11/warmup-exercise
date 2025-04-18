@@ -28,6 +28,8 @@ body
 .deck-card
 {
   position: absolute;
+  animation: quickShuffle 1.5s ease-in-out forwards;
+  transform-style: preserve-3d;
 }
 
 .deck-card:nth-child(1)
@@ -48,7 +50,7 @@ body
   z-index: 3;
 
   /*Triggers the animation*/
-  animation: startFlipAI 2s forwards;  
+  animation: flipLeftAI 2s forwards;  
   transform-style: preserve-3d;
 }
 
@@ -285,5 +287,39 @@ body
   100% 
   {
     transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+
+@keyframes quickShuffle {
+  0% {
+    transform: translateX(0) rotateY(0);
+  }
+  5% {
+    transform: translateX(-50px) rotateY(-15deg);
+  }
+  10% {
+    transform: translateX(50px) rotateY(15deg);
+  }
+  20% {
+    transform: translateX(-30px) rotateY(-10deg);
+  }
+  35% {
+    transform: translateX(0) rotateY(0);
+  }
+  50% {
+    transform: translateX(0) rotateY(0);
+  }
+  65% {
+    transform: translateX(-50px) rotateY(-15deg);
+  }
+  75% {
+    transform: translateX(50px) rotateY(15deg);
+  }
+  85% {
+    transform: translateX(-30px) rotateY(-10deg);
+  }
+  100% {
+    transform: translateX(0) rotateY(0);
   }
 }
