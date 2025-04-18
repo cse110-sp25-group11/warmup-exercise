@@ -14,13 +14,6 @@
 body
 {
   background-color: var(--light-green);
-  /* margin: 0;
-  height: 100vh;               
-  display: flex;
-  justify-content: center;     
-  align-items: center; **don't think we should make this flex because that will make all of the divs we have adhere to flex display*/
-
-  /*Okay sounds good, we can just delete this then - Alan :)*/
 }
 
 
@@ -54,9 +47,8 @@ body
   left: 40px;
   z-index: 3;
 
-
   /*Triggers the animation*/
-  animation: startFlip 2s forwards;  
+  animation: startFlipAI 2s forwards;  
   transform-style: preserve-3d;
 }
 
@@ -70,7 +62,7 @@ body
 } 
 
 
-.card-open-card, .hiddencard
+/* .card-open-card, .hiddencard
 {
   height: 250px;
   width: 165px;
@@ -80,8 +72,10 @@ body
   justify-content: center;
   position: absolute;
 }
+*/
 
-.card-open-card
+
+.open-card
 {
   background-color: var(--beige);
   border-radius: 20px;
@@ -89,10 +83,10 @@ body
   display: flex;
 }
 
-.hiddencard
+/* .hiddencard
 {
   transform: rotateY(180deg);
-} 
+}  */
 
 .AI-cards
 {
@@ -153,7 +147,6 @@ body
 }
 
 
-
 /* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
 .hit-button
 {
@@ -185,11 +178,30 @@ body
 } 
 
 /*COUNTER POSITIONING*/
-.counter-AI
+.counter
 {
   position: fixed;
-  right: calc(50% - 340px);
-  top: calc(50% + 210px);
+  background-color: var(--pink);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#counter-AI
+{
+  right: calc(47%);
+  top: calc(50% - 75px);
+
+}
+
+
+#counter-human
+{
+  right: calc(47%);
+  top: calc(50% + 35px);
 }
 
 
@@ -198,10 +210,69 @@ body
   font-family: "Poppins", sans-serif;
 }
 
+#overlay
+{
+  background-color: var(--dark-green);
+  position: fixed;
+  top: calc(50%);
+  right: calc(47%);
+  border-style: solid;
+  border-radius: 20px;
+  padding: 5px;
+}
+
 /*ANIMATIONS:*/
+@keyframes flipLeftAI
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+@keyframes flipRightAI
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
 
 
-@keyframes startFlip
+@keyframes flipRightHuman
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+
+@keyframes flipLeftHuman
 {
   0%
   {
