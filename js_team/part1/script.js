@@ -9,7 +9,7 @@ class Deck {
         this.cards = []; 
         this.element = null;
         this.initialize();
-        this.createDeckElement;
+        this.createDeckElement();
     }
 
     /**
@@ -37,7 +37,7 @@ class Deck {
 
         // deck image for back of cards
         const deckImage = document.createElement('img');
-        deckImage.src = 'assets/hiddencard.png';
+        deckImage.src = '../assets/hiddencard.png';
         deckImage.alt = 'Card Deck'
         deckImage.className = 'deck-image';
 
@@ -103,11 +103,11 @@ class Card {
      */
     getSuitImagePath(suit) {
         switch (suit) {
-            case "diamond": return "assets/diamond.png";
-            case "heart": return "assets/heart.png"; // fixed typo
-            case "clubs": return "assets/clubs.png";
-            case "spades": return "assets/spades.png";
-            default: return "assets/hiddencard.png"; // fixed typo
+            case "diamond": return "../assets/diamond.png";
+            case "heart": return "../assets/heart.png"; // fixed typo
+            case "clubs": return "../assets/clubs.png";
+            case "spades": return "../assets/spades.png";
+            default: return "../assets/hiddencard.png"; // fixed typo
         }
     }
 
@@ -127,37 +127,64 @@ class Card {
      */
     createCard() {
         const card = document.createElement('div');
-        card.className = (this.type === "hidden") ? 'hiddencard' : 'card';
+        card.className = (this.type === "hidden") ? 'hiddencard' : 'card-open-card';
 
         const imgPath = this.getSuitImagePath(this.suit);
         const { suitID, numberID, cardID } = this.getCardElementIDs(this.type);
         card.id = cardID;
 
-        if (this.type !== "hidden") {
-            card.innerHTML = `
-                <div class="top-left-label">
-                    <h2 class="card-number" id="${numberID}">${this.value}</h2>
-                    <img class="card-suit" id="${suitID}" src="${imgPath}" />
-                </div>
-                <div class="bottom-right-label">
-                    <img class="card-suit" id="${suitID}" src="${imgPath}" />
-                    <h2 class="card-number" id="${numberID}">${this.value}</h2>
-                </div>
-            `;
-        } else {
-            card.innerHTML = `
+        
+        /**
+         * Each card will have the <img> tag(s) for the suits and the back of the card
+         *  This way, we can just toggle whether or not the card is hidden (show back) or not
+         */ 
+        card.innerHTML = `
+            <div class="top-left-label">
+                <h2 class="card-number" id="${numberID}">${this.value}</h2>
+                <img class="card-suit" id="${suitID}" src="${imgPath}" />
                 <img src="${imgPath}" alt="Hidden Card" class="hidden-card-image" />
-            `;
-        }
+            </div>
+            <div class="bottom-right-label">
+                <img class="card-suit" id="${suitID}" src="${imgPath}" />
+                <h2 class="card-number" id="${numberID}">${this.value}</h2>
+                <img src="${imgPath}" alt="Hidden Card" class="hidden-card-image" />
+            </div>
+        `;
 
         return card;
     }
 
     /**
-     * Flips the card by toggling the 'flipped' class.
+     * Flips the card by setting the card as hiddencard
      */
     flip() {
-        this.element.classList.toggle("flipped");
+        if (this.element.classList.contains("card-open-card")) {
+            this.element.classList.remove("card-open-card");
+            this.element.classList.add("hiddencard");
+        } else {
+            this.element.classList.remove("hiddencard");
+            this.element.classList.add("card-open-card");
+        }
     }
 }
 
+// const deck = new Deck();
+// deck.createDeckElement();
+// const container = document.querySelector('.deck');
+// deck.render(container);
+
+// document.querySelector(".playbutton").addEventListener("click", () => {
+//     const pickedCard = deck.pickCard();
+//     if (pickedCard) {
+//         // Render two cards on each play mat (User and Dealer)
+//     }
+// });
+
+// document.querySelector(".hit-button").addEventListener("click", () => {
+//     const pickedCard = deck.pickCard();
+//     if (pickedCard) {
+//        // Render the card where its supposed to go (User) end
+//     } else {
+//         console.log("No more cards left!");
+//     }
+// });
