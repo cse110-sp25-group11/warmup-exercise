@@ -105,10 +105,10 @@ class Card {
      */
     getSuitImagePath(suit) {
         switch (suit) {
-            case "diamond": return "../assets/diamond.png";
-            case "heart": return "../assets/heart.png"; // fixed typo
-            case "clubs": return "../assets/clubs.png";
-            case "spades": return "../assets/spades.png";
+            case "diamond": return "./assets/diamond.png";
+            case "heart": return "./assets/heart.png"; // fixed typo
+            case "clubs": return "./assets/clubs.png";
+            case "spades": return "./assets/spades.png";
             default: 
         }
     }
@@ -164,6 +164,9 @@ const deck = new Deck();
 deck.createDeckElement();
 const container = document.querySelector('.deck');
 deck.render(container);
+let aiCardCount = 0;
+let humanCardCount = 0;
+
 
 
 async function drawCardWithAnimation(container, cardObj, flipType) {
@@ -200,7 +203,7 @@ async function drawCardWithAnimation(container, cardObj, flipType) {
 
                 // Add a new card back to the front of the deck
                 const newCardBack = document.createElement('img');
-                newCardBack.src = "../assets/cardBack.png";
+                newCardBack.src = "./assets/cardBack.png";
                 newCardBack.className = "deck-card card";
                 deckCont.insertBefore(newCardBack, deckCont.firstChild);
 
@@ -211,20 +214,27 @@ async function drawCardWithAnimation(container, cardObj, flipType) {
     });
 }
 
-document.querySelector(".playbutton").addEventListener("click", async () => {
+function updateCounter(id, newValue) {
+    const counter = document.getElementById(id);
+    if (counter) {
+        counter.querySelector("p").textContent = newValue;
+    }
+}
 
+
+document.querySelector(".playbutton").addEventListener("click", async () => {
     const cardAI1 = deck.pickCard();
     const cardAI2 = deck.pickCard();
     const cardHum1 = deck.pickCard();
     const cardHum2 = deck.pickCard();
+    updateCounter("counter-AI",0);
+    updateCounter("counter-human",0);
 
     if (cardAI1 && cardAI2) {
         const AICont = document.querySelector(".AI-cards");
-
         await drawCardWithAnimation(AICont, cardAI1, "flipLeftAI");
         await drawCardWithAnimation(AICont, cardAI2, "flipLeftAI");
         cardAI2.flip();
-
     }
 
     if (cardHum1 && cardHum2) {
@@ -234,3 +244,5 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     }
 
 });
+
+
