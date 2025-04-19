@@ -41,7 +41,7 @@ class Deck {
 
         for (let i = 0; i < 3; i++) {
             const cardImg = document.createElement('img');
-            cardImg.src = "../assets/cardBack.png";
+            cardImg.src = "./assets/cardBack.png";
             cardImg.className = "deck-card card";
             this.element.appendChild(cardImg);
         }
@@ -145,7 +145,7 @@ class Card {
                 <h2 class="card-number" id="${numberID}">${this.value}</h2>
             </div>
             <div class="hiddencard" id="hidden-card">
-                <img src="../assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
+                <img src="./assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
             </div>
         `;
 
