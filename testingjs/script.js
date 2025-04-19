@@ -246,3 +246,11 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
 });
 
 
+document.querySelector(".hit-button").addEventListener("click", async () => {
+    const drawedCard = deck.pickCard();
+    if (drawedCard) {
+        const humCont = document.querySelector(".human-cards");
+        await drawCardWithAnimation(humCont, drawedCard, "flipLeftHuman");
+    }
+});
+
