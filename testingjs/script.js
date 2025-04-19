@@ -229,8 +229,8 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
 
     if (cardHum1 && cardHum2) {
         const humCont = document.querySelector(".human-cards");
-        await drawCardWithAnimation(humCont, cardHum1, "flippedLeftHuman");
-        await drawCardWithAnimation(humCont, cardHum2, "flippedRightHuman");
+        await drawCardWithAnimation(humCont, cardHum1, "flipLeftHuman");
+        await drawCardWithAnimation(humCont, cardHum2, "flipRightHuman");
     }
 
 });
