@@ -297,6 +297,22 @@ function updateCounter(id, newValue) {
 
 
 document.querySelector(".playbutton").addEventListener("click", async () => {
+    const AICont = document.querySelector(".AI-cards");
+    const humCont = document.querySelector(".human-cards");
+    const hitButton = document.querySelector(".hit-button");
+    const standButton = document.querySelector(".stand-button");
+    const playButton = document.querySelector(".playbutton");
+
+    // Disable buttons
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    playButton.disabled = true;
+
+    AICont.innerHTML = ""; // Clear previous cards
+    humCont.innerHTML = ""; // Clear previous cards
+
+
+
     const cardAI1 = deck.pickCard();
     const cardAI2 = deck.pickCard();
     const cardHum1 = deck.pickCard();
@@ -307,7 +323,6 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     humanTotal = 0;
 
     if (cardAI1 && cardAI2) {
-        const AICont = document.querySelector(".AI-cards");
         await drawCardWithAnimation(AICont, cardAI1, "flipLeftAI");
         aiTotal = cardAI1.numericalValue;
         updateCounter("counter-AI",aiTotal);
@@ -316,7 +331,6 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     }
 
     if (cardHum1 && cardHum2) {
-        const humCont = document.querySelector(".human-cards");
         await drawCardWithAnimation(humCont, cardHum1, "flipLeftHuman");
         humanTotal += cardHum1.numericalValue;
         updateCounter("counter-human", humanTotal);
@@ -325,24 +339,68 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
         updateCounter("counter-human", humanTotal);
     }
 
+    // Re-enable buttons after animations are complete
+    hitButton.disabled = false;
+    standButton.disabled = false;
+    playButton.disabled = false;
+
 });
 
 
 document.querySelector(".hit-button").addEventListener("click", async () => {
+    const hitButton = document.querySelector(".hit-button");
+    const standButton = document.querySelector(".stand-button");
+    const playButton = document.querySelector(".playbutton");
+
+    // Disable buttons
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    playButton.disabled = true;
+
     const drawedCard = deck.pickCard();
     if (drawedCard) {
         const humCont = document.querySelector(".human-cards");
         await drawCardWithAnimation(humCont, drawedCard, "flipLeftHuman");
         humanTotal += drawedCard.numericalValue;
-        updateCounter("counter-human",humanTotal);
+        updateCounter("counter-human", humanTotal);
     }
+
     checkjoever();
+
+    // Re-enable buttons after animations are complete
+    hitButton.disabled = false;
+    standButton.disabled = false;
+    playButton.disabled = false;
 });
 
 
 
 document.querySelector(".stand-button").addEventListener("click", async () => {
-    
+    const AICont = document.querySelector(".AI-cards");
+    const hitButton = document.querySelector(".hit-button");
+    const standButton = document.querySelector(".stand-button");
+    const playButton = document.querySelector(".playbutton");
 
+    // Disable buttons
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    playButton.disabled = true;
+
+    // AI's turn
+    while (aiTotal < 17) {
+        const drawedCard = deck.pickCard();
+        if (drawedCard) {
+            await drawCardWithAnimation(AICont, drawedCard, "flipLeftAI");
+            aiTotal += drawedCard.numericalValue;
+            updateCounter("counter-AI",aiTotal);
+        }
+    }
+
+    checkjoever();
+
+    // Re-enable buttons after animations are complete
+    hitButton.disabled = false;
+    standButton.disabled = false;
+    playButton.disabled = false;
 });
 
