@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unit Testing</title>
+</head>
+<body>
+    <div class="deck"></div>
+  <h1>Blackjack Unit Tests</h1>
+  <p>Open your browser console to view results.</p>
+
+  <!-- Minimal structure for DOM-dependent tests -->
+  <div id="counter-human"><p>10</p></div>
+  <div id="counter-AI"><p>3</p></div>
+  <div id="overlay" class="hidden">
+    <div class="overlay-content">
+      <h2 class="message"></h2>
+    </div>
+  </div>
+
+  <!-- Scripts: Game logic first, then tests -->
+  <script src="../testingjs/script.js"></script>
+  <script src="./testing.js"></script>
+</body>
+</html>

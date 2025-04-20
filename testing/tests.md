@@ -37,7 +37,8 @@
 
 #### Visual:
 - No layout for the face of the card
-- Shuffling animation seems to be a bit off? (Unless it was intentional, then it's fine)
+- Shuffling animation seems to be a bit off?
+  - (FIXED ✅ -- It was intentional)
 - There seems to be no "You win" screen
 
 #### Unit testing:

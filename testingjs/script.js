@@ -212,10 +212,12 @@ deck.render(container);
 let cardAI2 = null;
 let aiTotal = 0;
 let humanTotal = 0;
+// window.aiTotal = 0;
+// window.humanTotal = 0;
 
-    /**
-     * check if the game is over, if the human AI lost, or to step down the Ace from 11 to 1
-     */
+/**
+* check if the game is over, if the human AI lost, or to step down the Ace from 11 to 1
+*/
 function checkjoever(type = "hit"){
     if (type == "hit") {
         if (humanTotal > 21) {
