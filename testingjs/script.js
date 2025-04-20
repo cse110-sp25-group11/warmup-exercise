@@ -209,31 +209,41 @@ const deck = new Deck();
 deck.createDeckElement();
 const container = document.querySelector('.deck');
 deck.render(container);
+const cardAI2 = deck.pickCard();
 let aiTotal = 0;
 let humanTotal = 0;
 
     /**
      * check if the game is over, if the human AI lost, or to step down the Ace from 11 to 1
      */
-function checkjoever(){
-    if (humanTotal > 21) {
-        // Need 2 add: reduce Ace from 11 to 1 here before declaring bust
-        showOverlay("You busted! AI wins!");
-        return;
+function checkjoever(type = "hit"){
+    if (type == "hit") {
+        if (humanTotal > 21) {
+            // Need 2 add: reduce Ace from 11 to 1 here before declaring bust
+            showOverlay("You busted! AI wins!");
+            return;
+        }
+        // If both players have stood, check winner
+        if (humanTotal == 21) {
+            showOverlay("You win!");
+            return;
+        }
     }
-
-    if (aiTotal > 21) {
-        showOverlay("AI busted! You win!");
-        return;
-    }
-
-    // If both players have stood, check winner
-    if (humanTotal == 21) {
-        showOverlay("You win!");
-    }
-
-    if(humanTotal == 21){
-        showOverlay("AI wins!");
+    if (type == "stand") {
+        if (aiTotal > 21) {
+            showOverlay("AI busted! You win!");
+            return;
+        }
+        if (aiTotal > humanTotal) {
+            showOverlay("AI wins!");
+            return;
+        } else if (aiTotal < humanTotal) {
+            showOverlay("You win!");
+            return;
+        } else {
+            showOverlay("It's a tie!");
+            return;
+        }
     }
 }
 
@@ -314,7 +324,6 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
 
 
     const cardAI1 = deck.pickCard();
-    const cardAI2 = deck.pickCard();
     const cardHum1 = deck.pickCard();
     const cardHum2 = deck.pickCard();
     updateCounter("counter-AI",0);
@@ -387,17 +396,22 @@ document.querySelector(".stand-button").addEventListener("click", async () => {
     standButton.disabled = true;
     playButton.disabled = true;
 
+    // Flip the initially faced-down card
+    cardAI2.flip();
+    aiTotal += cardAI2.numericalValue;
+    updateCounter("counter-AI", aiTotal);
+
     // AI's turn
     while (aiTotal < 17) {
         const drawedCard = deck.pickCard();
         if (drawedCard) {
             await drawCardWithAnimation(AICont, drawedCard, "flipLeftAI");
             aiTotal += drawedCard.numericalValue;
-            updateCounter("counter-AI",aiTotal);
+            updateCounter("counter-AI", aiTotal);
         }
     }
 
-    checkjoever();
+    checkjoever("stand");
 
     // Re-enable buttons after animations are complete
     hitButton.disabled = false;
