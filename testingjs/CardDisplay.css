@@ -243,6 +243,9 @@ body
   border-style: solid;
   border-radius: 20px;
   padding: 5px;
+}
+
+.hidden {
   display: none;
 }
 
