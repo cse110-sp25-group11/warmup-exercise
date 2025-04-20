@@ -348,14 +348,29 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
 
 
 document.querySelector(".hit-button").addEventListener("click", async () => {
+    const hitButton = document.querySelector(".hit-button");
+    const standButton = document.querySelector(".stand-button");
+    const playButton = document.querySelector(".playbutton");
+
+    // Disable buttons
+    hitButton.disabled = true;
+    standButton.disabled = true;
+    playButton.disabled = true;
+
     const drawedCard = deck.pickCard();
     if (drawedCard) {
         const humCont = document.querySelector(".human-cards");
         await drawCardWithAnimation(humCont, drawedCard, "flipLeftHuman");
         humanTotal += drawedCard.numericalValue;
-        updateCounter("counter-human",humanTotal);
+        updateCounter("counter-human", humanTotal);
     }
+
     checkjoever();
+
+    // Re-enable buttons after animations are complete
+    hitButton.disabled = false;
+    standButton.disabled = false;
+    playButton.disabled = false;
 });
 
 
