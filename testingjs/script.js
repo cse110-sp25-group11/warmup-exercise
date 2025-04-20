@@ -209,7 +209,7 @@ const deck = new Deck();
 deck.createDeckElement();
 const container = document.querySelector('.deck');
 deck.render(container);
-const cardAI2 = deck.pickCard();
+let cardAI2 = null;
 let aiTotal = 0;
 let humanTotal = 0;
 
@@ -221,30 +221,31 @@ function checkjoever(type = "hit"){
         if (humanTotal > 21) {
             // Need 2 add: reduce Ace from 11 to 1 here before declaring bust
             showOverlay("You busted! AI wins!");
-            return;
+            return ;
         }
         // If both players have stood, check winner
         if (humanTotal == 21) {
-            showOverlay("You win!");
-            return;
+            document.querySelector(".stand-button").click(); // Trigger stand button
+            return ;
         }
     }
     if (type == "stand") {
         if (aiTotal > 21) {
             showOverlay("AI busted! You win!");
-            return;
+            return ;
         }
         if (aiTotal > humanTotal) {
             showOverlay("AI wins!");
-            return;
+            return ;
         } else if (aiTotal < humanTotal) {
             showOverlay("You win!");
-            return;
+            return ;
         } else {
             showOverlay("It's a tie!");
-            return;
+            return ;
         }
     }
+    return ;
 }
 
 function showOverlay(message) {
@@ -305,6 +306,13 @@ function updateCounter(id, newValue) {
     }
 }
 
+function resetGame() {
+    const playButton = document.querySelector(".playbutton");
+    if (playButton) {
+        playButton.click(); // Simulate the play button being clicked
+    }
+}
+
 
 document.querySelector(".playbutton").addEventListener("click", async () => {
     const AICont = document.querySelector(".AI-cards");
@@ -312,6 +320,10 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     const hitButton = document.querySelector(".hit-button");
     const standButton = document.querySelector(".stand-button");
     const playButton = document.querySelector(".playbutton");
+
+    playButton.style.display = "none";
+
+    overlay.classList.add("hidden");
 
     // Disable buttons
     hitButton.disabled = true;
@@ -324,6 +336,7 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
 
 
     const cardAI1 = deck.pickCard();
+    cardAI2 = deck.pickCard();
     const cardHum1 = deck.pickCard();
     const cardHum2 = deck.pickCard();
     updateCounter("counter-AI",0);
@@ -346,7 +359,7 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
         await drawCardWithAnimation(humCont, cardHum2, "flipRightHuman");
         humanTotal += cardHum2.numericalValue;
         updateCounter("counter-human", humanTotal);
-        checkjoever()
+        checkjoever();
     }
 
     // Re-enable buttons after animations are complete
@@ -376,6 +389,7 @@ document.querySelector(".hit-button").addEventListener("click", async () => {
     }
 
     checkjoever();
+
 
     // Re-enable buttons after animations are complete
     hitButton.disabled = false;
