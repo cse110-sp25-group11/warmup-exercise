@@ -46,15 +46,18 @@ Possible errors/confusion:
       - When dealing cards to the ai, once a card is dealt and flipped, the animation does not terminate,
         ultimately showing two cards when there's only only supposed to be one
       - Animations that are already in motion do not cancel out, possibly carrying out parallel function calls
+      - Once the entire animations are over, and the cards have been dealt, an extra card seems to hover next to the deck
+      - All variables/counter/cards/deck do not reset upon click
 
     - On press "Hit" (logic not complete)
       - Even at the start of the game, the user is allowed to press "hit" and would be dealt a single card (should not be the case)
     
-    - Player is still allowed to press "hit" even though cards on table cross the sum of 21
-      - Logic not done
+    - If a player has been busted, the game does not freeze buttons, allowing the user to still click around
+      - Win/Busted pop-up does not reset when "play" is pressed again
   
 
 
 ***Possible additions***
 
-  - Hide the hit/stand button until "Play" is pressed
+  - Hide the hit/stand buttons until "Play" is pressed
+  - Hide the hit/stand buttons when the player wins/loses
