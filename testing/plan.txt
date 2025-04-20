@@ -1,29 +1,60 @@
-Testing for step 1:
+*** Rough Plan ***
 
 Visual testing:
-- Is the flip animation correct and seamless
-- Do the cards render correctly
-- Is the design consistent
-- Does the shuffling have a visual animation
+- Color scheme
+- Shuffling animation
+- Card covers
+- Flip animations
 
 Unit Testing:
 - Write a test JS script
-- Test for:
-  - Card flip logic
-  - Deck initialization logic
 
 Functional Testing:
  - Do the buttons on the screen work as intended on click?
-
-Documentation:
-
-
-
-
-Testing for step 2:
+   - Hit button
+   - Play button
+   - Stand button
+   - Can you click things you shouldn't be able to?
 
 
 
+***Documentation***:
+
+1. Visual Testing
+  - Color scheme appears to be consistent ✅
+  - Shuffling animation ...
+  - Is the card cover consistent (displays the team mascot)? ✅
+  - Flip animation:
+    - Seems consistent ✅
+    - No delay/lag ✅
+
+2. Unit testing
+
+3. Functional testing:
+  - Possible problems with "play button" (see below)
+  - Waiting on other logic to be finished
 
 
-Testing for step 3:
+Possible errors/confusion:
+  - Visual:
+    - Shuffling animation seems to be a bit off? (Unless it was intentional, then it's fine)
+  
+  - Unit testing:
+
+  - Functional:
+    - On press "Play":
+      - When dealing cards to the ai, once a card is dealt and flipped, the animation does not terminate,
+        ultimately showing two cards when there's only only supposed to be one
+      - Animations that are already in motion do not cancel out, possibly carrying out parallel function calls
+
+    - On press "Hit" (logic not complete)
+      - Even at the start of the game, the user is allowed to press "hit" and would be dealt a single card (should not be the case)
+    
+    - Player is still allowed to press "hit" even though cards on table cross the sum of 21
+      - Logic not done
+  
+
+
+***Possible additions***
+
+  - Hide the hit/stand button until "Play" is pressed
