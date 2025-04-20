@@ -337,6 +337,7 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
         await drawCardWithAnimation(humCont, cardHum2, "flipRightHuman");
         humanTotal += cardHum2.numericalValue;
         updateCounter("counter-human", humanTotal);
+        checkjoever()
     }
 
     // Re-enable buttons after animations are complete
