@@ -98,6 +98,51 @@ class Card {
         this.suit = suit;
         this.type = type;
         this.element = this.createCard(); // <-- fixed here
+        switch(value) {
+            case 'A':
+                this.numericalValue = 11;
+                break;
+            case '2':
+                this.numericalValue = 2;
+                break;
+            case '3':
+                this.numericalValue = 3;
+                break;
+            case '4':
+                this.numericalValue = 4;
+                break;
+            case '5':
+                this.numericalValue = 5;
+                break;
+            case '6':
+                this.numericalValue = 6;
+                break;
+            case '7':
+                this.numericalValue = 7;
+                break;
+            case '8':
+                this.numericalValue = 8;
+                break;
+            case '9':
+                this.numericalValue = 9;
+                break;
+            case '10':
+                this.numericalValue = 10;
+                break;
+            case 'J':
+                this.numericalValue = 10;
+                break;
+            case 'Q':
+                this.numericalValue = 10;
+                break;
+            case 'K':
+                this.numericalValue = 10;
+                break;
+            default:
+                console.warn(`Unknown card value: ${value}`);
+                this.numericalValue = 0;
+        }
+    
     }
 
     /**
@@ -164,10 +209,39 @@ const deck = new Deck();
 deck.createDeckElement();
 const container = document.querySelector('.deck');
 deck.render(container);
-let aiCardCount = 0;
-let humanCardCount = 0;
+let aiTotal = 0;
+let humanTotal = 0;
 
+    /**
+     * check if the game is over, if the human AI lost, or to step down the Ace from 11 to 1
+     */
+function checkjoever(){
+    if (humanTotal > 21) {
+        // Need 2 add: reduce Ace from 11 to 1 here before declaring bust
+        showOverlay("You busted! AI wins!");
+        return;
+    }
 
+    if (aiTotal > 21) {
+        showOverlay("AI busted! You win!");
+        return;
+    }
+
+    // If both players have stood, check winner
+    if (humanTotal == 21) {
+        showOverlay("You win!");
+    }
+
+    if(humanTotal == 21){
+        showOverlay("AI wins!");
+    }
+}
+
+function showOverlay(message) {
+    const overlay = document.getElementById("overlay");
+    overlay.querySelector(".message").textContent = message;
+    overlay.classList.remove("hidden");
+}
 
 async function drawCardWithAnimation(container, cardObj, flipType) {
     return new Promise((resolve) => {
@@ -229,10 +303,14 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     const cardHum2 = deck.pickCard();
     updateCounter("counter-AI",0);
     updateCounter("counter-human",0);
+    aiTotal = 0;
+    humanTotal = 0;
 
     if (cardAI1 && cardAI2) {
         const AICont = document.querySelector(".AI-cards");
         await drawCardWithAnimation(AICont, cardAI1, "flipLeftAI");
+        aiTotal = cardAI1.numericalValue;
+        updateCounter("counter-AI",aiTotal);
         await drawCardWithAnimation(AICont, cardAI2, "flipLeftAI");
         cardAI2.flip();
     }
@@ -240,7 +318,11 @@ document.querySelector(".playbutton").addEventListener("click", async () => {
     if (cardHum1 && cardHum2) {
         const humCont = document.querySelector(".human-cards");
         await drawCardWithAnimation(humCont, cardHum1, "flipLeftHuman");
+        humanTotal += cardHum1.numericalValue;
+        updateCounter("counter-human", humanTotal);
         await drawCardWithAnimation(humCont, cardHum2, "flipRightHuman");
+        humanTotal += cardHum2.numericalValue;
+        updateCounter("counter-human", humanTotal);
     }
 
 });
@@ -251,6 +333,16 @@ document.querySelector(".hit-button").addEventListener("click", async () => {
     if (drawedCard) {
         const humCont = document.querySelector(".human-cards");
         await drawCardWithAnimation(humCont, drawedCard, "flipLeftHuman");
+        humanTotal += drawedCard.numericalValue;
+        updateCounter("counter-human",humanTotal);
     }
+    checkjoever();
+});
+
+
+
+document.querySelector(".stand-button").addEventListener("click", async () => {
+    
+
 });
 
