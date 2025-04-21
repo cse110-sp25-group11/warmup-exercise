@@ -33,13 +33,14 @@
   - Seems consistent ✅
   - No delay/lag ✅
 
-### 2. Unit testing
+### 2. Unit testing (see testing.js in testing/ folder for full js code)
   - CardConstructor (✅ Passed)
   - CardFlip (✅ Passed)
   - DeckInitialization (✅ Passed)
   - PickCardReducesDeck (✅ Passed)
   - UpdateCounter (✅ Passed)
   - Checkjoever (✅ Passed)
+![Picture of passed tests in dev tools](assets/tests.png)
 
 ### 3. Functional testing
 - Possible problems with "play button" (see below)
