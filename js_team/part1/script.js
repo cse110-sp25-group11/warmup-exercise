@@ -41,7 +41,7 @@ class Deck {
 
         for (let i = 0; i < 3; i++) {
             const cardImg = document.createElement('img');
-            cardImg.src = "./assets/cardBack.png";
+            cardImg.src = "../../assets/cardBack.png";
             cardImg.className = "deck-card card";
             this.element.appendChild(cardImg);
         }
@@ -150,10 +150,10 @@ class Card {
      */
     getSuitImagePath(suit) {
         switch (suit) {
-            case "diamond": return "./assets/diamond.png";
-            case "heart": return "./assets/heart.png"; // fixed typo
-            case "clubs": return "./assets/clubs.png";
-            case "spades": return "./assets/spades.png";
+            case "diamond": return "../../assets/diamond.png";
+            case "heart": return "../../assets/heart.png"; // fixed typo
+            case "clubs": return "../../assets/clubs.png";
+            case "spades": return "../../assets/spades.png";
             default: 
         }
     }
@@ -190,7 +190,7 @@ class Card {
                 <h2 class="card-number" id="${numberID}">${this.value}</h2>
             </div>
             <div class="hiddencard" id="hidden-card">
-                <img src="./assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
+                <img src="../../assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
             </div>
         `;
 
@@ -216,7 +216,7 @@ let humanTotal = 0;
     /**
      * check if the game is over, if the human AI lost, or to step down the Ace from 11 to 1
      */
-function checkjoever(type = "hit"){
+function checkjoever(type){
     if (type == "hit") {
         if (humanTotal > 21) {
             // Need 2 add: reduce Ace from 11 to 1 here before declaring bust
@@ -288,7 +288,7 @@ async function drawCardWithAnimation(container, cardObj, flipType) {
 
                 // Add a new card back to the front of the deck
                 const newCardBack = document.createElement('img');
-                newCardBack.src = "./assets/cardBack.png";
+                newCardBack.src = "../../assets/cardBack.png";
                 newCardBack.className = "deck-card card";
                 deckCont.insertBefore(newCardBack, deckCont.firstChild);
 
@@ -388,7 +388,7 @@ document.querySelector(".hit-button").addEventListener("click", async () => {
         updateCounter("counter-human", humanTotal);
     }
 
-    checkjoever();
+    checkjoever("hit");
 
 
     // Re-enable buttons after animations are complete
