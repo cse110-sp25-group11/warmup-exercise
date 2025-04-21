@@ -1,0 +1,370 @@
+/* font-family: "Poppins", sans-serif; */
+
+/*GENERAL STARTER STUFF*/
+:root
+{
+  --pink: #FDCEDF;
+  --light-blue: #CAE9F6;
+  --light-green: #8DB596; 
+  --dark-green: #1F7D53;
+  --beige: #FAF1E6;
+  --dark-pink: #e69cb7; 
+}
+
+body
+{
+  background-color: var(--light-green);
+}
+
+
+/*DECK OF CARDS IN THE TOP LEFT*/
+.deck
+{
+  position: absolute;
+  width: 250px;
+  height: 300px;
+}
+
+.deck-card
+{
+  position: absolute;
+  /* animation: quickShuffle 1.5s ease-in-out forwards; */
+  transform-style: preserve-3d;
+}
+
+.deck-card:nth-child(1)
+{
+  left: 0px;
+  z-index: 1;
+}
+
+.deck-card:nth-child(2)
+{
+  left: 20px;
+  z-index: 2;
+}
+
+.deck-card:nth-child(3)
+{
+  left: 40px;
+  z-index: 3;
+
+  /*Triggers the animation*/
+  /* animation: flipLeftAI 2s forwards;   */
+  transform-style: preserve-3d;
+}
+
+
+/*INDIVIDUAL CARDS*/
+.card
+{
+  height: 250px;
+  width: 165px;
+  transform-style: preserve-3d;
+
+  background-color: var(--beige);
+  border-radius: 20px;
+  border-width: 1px;
+  display: flex;
+} 
+
+.card.flipped .top-left-label,
+.card.flipped .bottom-right-label {
+    display: none;
+}
+
+.card.flipped .hiddencard {
+    display: block;
+}
+
+/* When the card is NOT flipped: show the labels, hide the back */
+.card:not(.flipped) .top-left-label,
+.card:not(.flipped) .bottom-right-label {
+    display: block;
+}
+
+.card:not(.flipped) .hiddencard {
+    display: none;
+}
+/* .card-open-card, .hiddencard
+{
+  height: 250px;
+  width: 165px;
+  display: flex; 
+  backface-visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+*/
+
+
+.open-card
+{
+  background-color: var(--beige);
+  border-radius: 20px;
+  border-width: 1px;
+  display: flex;
+}
+
+/* .hiddencard
+{
+  transform: rotateY(180deg);
+}  */
+
+.AI-cards
+{
+  /*Position on the screen (This puts it on the top center)*/
+  position: fixed; 
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/*BACKGROUND FEATURES*/
+.human-cards
+{
+  position: fixed; 
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.card-mat
+{
+  /*Card display and coloring*/
+  border-color: var(--beige);
+  display: flex;
+
+  /*Border shenanigans (spacing between them, shape, coloring, etc)*/
+  border-style: dotted;
+  height: 260px;
+  width: 400px;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  align-items: center; 
+}
+
+
+/*ALL BUTTONS ON THE SCREEN */ 
+.playbutton
+{
+  position: fixed;
+  left: calc(50% - 50px);
+  right: calc(50% - 65px); 
+  bottom: 375px; 
+  background-color: var(--pink);
+  font-size: 14px;
+  padding: 15px 40px;
+  border-radius: 999px;
+}
+
+/*Play button changes color when cursor hovers over it*/
+.playbutton:hover
+{
+  background-color: var(--dark-pink);
+}
+
+.playbutton:hover
+{
+  animation-name: startFlip;
+}
+
+
+/* HIT BUTTON, MAINLY PLACEMENT AS OF NOW */
+.hit-button
+{
+  position: fixed;
+  left: calc(50% - 350px);
+  top: calc(50% + 150px);
+}
+
+.hit-hum
+{
+  position: fixed;
+  left: calc(50% - 330px);
+  top: calc(50% + 200px);
+} 
+
+/* STAND BUTTON, MAINLY PLACEMENT AS OF NOW */
+.stand-button
+{
+  position: fixed;
+  right: calc(50% - 350px);
+  top: calc(50% + 150px);
+}
+
+.stand-hum
+{
+  position: fixed;
+  right: calc(50% - 340px);
+  top: calc(50% + 210px);
+} 
+
+/*COUNTER POSITIONING*/
+.counter
+{
+  position: fixed;
+  background-color: var(--pink);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+#counter-AI
+{
+  right: calc(47%);
+  top: calc(50% - 75px);
+
+}
+
+
+#counter-human
+{
+  right: calc(47%);
+  top: calc(50% + 35px);
+}
+
+
+.message
+{
+  font-family: "Poppins", sans-serif;
+}
+
+#overlay
+{
+  background-color: var(--dark-green);
+  position: fixed;
+  top: calc(50%);
+  right: calc(47%);
+  border-style: solid;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*ANIMATIONS:*/
+@keyframes flipLeftAI
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(400px) translateY(50px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(400px) translateY(50px) rotateY(180deg); 
+  }
+}
+
+@keyframes flipRightAI
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+
+@keyframes flipRightHuman
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+
+@keyframes flipLeftHuman
+{
+  0%
+  {
+    transform: translateX(0) rotateY(0);
+  }
+  50%
+  {
+    transform: translateX(200px) rotateY(0);
+  }
+  100% 
+  {
+    transform: translateX(200px) rotateY(180deg); 
+  }
+}
+
+
+@keyframes quickShuffle {
+    0% {
+      transform: translateX(0) rotateY(0);
+    }
+    25% {
+      transform: translateX(-50px) rotateY(-15deg);
+    }
+    50% {
+      transform: translateX(50px) rotateY(15deg);
+    }
+    75% {
+      transform: translateX(-30px) rotateY(-10deg);
+    }
+    100% {
+      transform: translateX(0) rotateY(0);
+    }
+}
+
+/* 
+@keyframes quickShuffle {
+  0% {
+    transform: translateX(0) rotateY(0);
+  }
+  5% {
+    transform: translateX(-50px) rotateY(-15deg);
+  }
+  10% {
+    transform: translateX(50px) rotateY(15deg);
+  }
+  20% {
+    transform: translateX(-30px) rotateY(-10deg);
+  }
+  35% {
+    transform: translateX(0) rotateY(0);
+  }
+  50% {
+    transform: translateX(0) rotateY(0);
+  }
+  65% {
+    transform: translateX(-50px) rotateY(-15deg);
+  }
+  75% {
+    transform: translateX(50px) rotateY(15deg);
+  }
+  85% {
+    transform: translateX(-30px) rotateY(-10deg);
+  }
+  100% {
+    transform: translateX(0) rotateY(0);
+  }
+} */

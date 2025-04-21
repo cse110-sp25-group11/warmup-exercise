@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Slabo+13px&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CardDisplay.css">
+    <link rel="stylesheet" href="./CardAnimations.css">
     <meta charset="UTF-8" />
     <title>BlackJack</title>
 </head>
 <body>
     <!-- Will be an absolute div to center deck to top left -->
     <div class="deck">
-        <img>
+        <!-- <img class="deck-card card" src="../assets/cardBack.png">
+        <img class="deck-card card" src="../assets/cardBack.png">
+        <img class="deck-card card" src="../assets/cardBack.png"> -->
     </div>
     <!-- This will be a div encapsulating the all the contents of the game-->
     <div>
         <!--This div is for the container where AI cards will be-->
-        <div class="AI-cards">
-            
+        <div class="AI-cards card-mat">
             <!-- Template for CARDS
-                <div class="card" id="AI-card">
+                <div class="card open-card" id="AI-card">
                     <div class="top-left-label">
                         <h2 class="card-number" id="card-number-AI">A</h2>
-                        <img class="card-suit" id="card-suit-AI"> Suit of card i.e Spades, Diamonds
+                        <img class="card-suit" id="card-suit-AI" src="../assets/spades.png"> Suit of card i.e Spades, Diamonds 
                     </div>
                     <div class="bottom-right-label">
-                        <img class="card-suit" id="card-suit-AI"> Suit of card i.e Spades, Diamonds
+                        <img class="card-suit" id="card-suit-AI" src="../assets/clubs.png"> Suit of card i.e Spades, Diamonds 
                         <h2 class="card-number" id="card-number-AI">A</h2>
                     </div>
                 </div>
-            -->
-            
-            <!-- Template for Hidden Cards (face not shown)
+              Template for Hidden Cards (face not shown
                 <div class="hiddencard" id="hidden-card">
-                    <img src="assets/hiddencard.png" alt="Hidden Card" class="hidden-card-image">
-                </div>
-            -->
+                    <img src="../assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
+                </div> -->
         </div>
 
         <!--The counter for AI-->
-        <div class="counter-AI" id="counter-AI"> 11 </div>
+        <div class="counter" id="counter-AI"> 
+          <p>0</p> 
+        </div>
 
         <button class="playbutton">PLAY</button>
 
-        <div class="counter-AI" id="counter-human"> 11 </div>
+        <div class="counter" id="counter-human"> 
+          <p>0</p>
+        </div>
 
         <div>
             <!--This will be the Stand Button-->
@@ -55,19 +62,22 @@
             </div>
             
             <!--This div is for the container where Human cards will be-->
-            <div class="human-cards">
+            <div class="human-cards card-mat">
                 <!-- Template for CARDS
-                    <div class="card" id="hum-card">
+                    <div class="card open-card" id="hum-card">
                         <div class="top-left-label">
                             <h2 class="card-number" id="card-number-hum">A</h2>
-                            <img class="card-suit" id="card-suit-hum"> Suit of card i.e Spades, Diamonds
+                            <img class="card-suit" id="card-suit-hum" src="../assets/diamond.png"> Suit of card i.e Spades, Diamonds 
                         </div>
                         <div class="bottom-right-label">
-                            <img class="card-suit" id="card-suit-hum"> Suit of card i.e Spades, Diamonds
+                            <img class="card-suit" id="card-suit-hum" src="../assets/heart.png"> Suit of card i.e Spades, Diamonds 
                             <h2 class="card-number" id="card-number-hum">A</h2>
                         </div>
-                    </div>
-                -->
+                    </div>    
+                    Template for Hidden Cards (face not shown
+                    <div class="hiddencard" id="hidden-card">
+                      <img src="../assets/cardBack.png" alt="Hidden Card" class="hidden-card-image card">
+                    </div> -->
             </div>
 
             <!--This will be the Hit Button-->
@@ -86,11 +96,10 @@
     <!--This is the overlay for when the game is over-->
     <div id="overlay" class="hidden">
         <div class="overlay-content">
-            <h2>You win!</h2> <!-- Change text based on the status (win/lose/tie)-->
-            <button onclick="hideOverlay()"></button>
+            <h2 class="message">You win!</h2> <!-- Change text based on the status (win/lose/tie)-->
+            <button onclick="resetGame()"></button>
         </div>
     </div>
-
-
+    <script src="./script.js"></script>
 </body>
 </html>

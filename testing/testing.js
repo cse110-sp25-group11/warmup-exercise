@@ -30,11 +30,9 @@ function assertEquals(actual, expected, message){
 function assertTrue(condition, message){
     if(!condition){
         console.error(`${message}`);
-        const resultsElement = document.getElementById('test-results').innerHTML += '<br/>Test failed! ' + message;
     }
     else{
         console.log(`Matched! --- ${message}`);
-        const resultsElement = document.getElementById('test-results').innerHTML += '<br/>Test passed! ' + message;
     }
 }
 
