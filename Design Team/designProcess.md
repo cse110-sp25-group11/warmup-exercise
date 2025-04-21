@@ -15,8 +15,8 @@ We came up with the idea of the card design by first thinking of the color theme
 ## Step 2:
 
 1. Design the user interaction for dealing cards from the deck.
-![Dealt 1st card](/Design%20Team/photos/cardDeal1.png)
-Dealing the first card to player face-up
+![Dealt 1st card](/Design%20Team/photos/cardDeal1.png)\
+Dealing the first card to player face-up 
 ![Dealt 2nd card](/Design%20Team/photos/cardDeal2.png)
 Dealing the second card to dealer face-up
 ![Dealt 3rd card](/Design%20Team/photos/cardDeal3.png)
