@@ -68,10 +68,73 @@ body
   display: flex;
 } 
 
+
+.top-left-label,
+.bottom-right-label {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#overlay button {
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+#overlay button::after 
+{
+  content: "Play Again";
+}
+
+.top-left-label,
+.bottom-right-label {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-left-label {
+    top: 5px;
+    left: 5px;
+}
+
+.bottom-right-label {
+    bottom: 5px;
+    right: 5px;
+    transform: rotate(180deg);
+}
+
+.card-number {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1;
+}
+
+.card-suit {
+    width: 16px;
+    height: 16px;
+}
+
+
 .card.flipped .top-left-label,
 .card.flipped .bottom-right-label {
     display: none;
 }
+
+.card.flipped .bottom-right-label 
+{
+  left: 500px;
+}
+
+
 
 .card.flipped .hiddencard {
     display: block;
