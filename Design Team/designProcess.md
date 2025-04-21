@@ -49,3 +49,4 @@ The design team ensured that the layout and interactions are responsive across a
 ![player ties](/Design%20Team/photos/playerTies.png)
 3. Polish the visual design of the game (if you can).
 4. Plan and create a short YouTube video showcasing the game.
+[Link to Youtube Video](https://youtu.be/j6svX0RjFg0)
