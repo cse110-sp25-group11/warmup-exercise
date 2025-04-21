@@ -1,4 +1,5 @@
 # Design Process
+[Link to Figma:](https://www.figma.com/design/puGmeyN4DDDf6l16EwZ0j1/WarmUp-Project?node-id=0-1&t=cI4KOeISngPYKG8k-1)
 ## Step 1: 
 1. Wireframe individual cards and the card deck layout.
 ![image of card's front, back and stacked](/Design%20Team/photos/cardView.png)
@@ -43,5 +44,8 @@ The design team ensured that the layout and interactions are responsive across a
 
 1. Design the overall layout of the Blackjack game interface.
 2. Design visual feedback mechanisms for game actions and status.
+![player wins](/Design%20Team/photos/playerHits21.png)
+![player loses](/Design%20Team/photos/playerLoses.png)
+![player ties](/Design%20Team/photos/playerTies.png)
 3. Polish the visual design of the game (if you can).
 4. Plan and create a short YouTube video showcasing the game.
