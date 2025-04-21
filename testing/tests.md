@@ -33,7 +33,7 @@
   - Seems consistent ✅
   - No delay/lag ✅
 
-### 2. Unit testing (see testing.js in testing/ folder for full js code)
+### 2. Unit testing (see testing.js in testing/ folder for [full js code](testing.js))
   - CardConstructor (✅ Passed)
   - CardFlip (✅ Passed)
   - DeckInitialization (✅ Passed)
