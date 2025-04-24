@@ -24,3 +24,14 @@
 - **Browser Compatibility**: The game may not work in older browsers due to it's reliance on the current javascript code
 - **Asset Management**: There can be a performance or reference issue since the assets are hardcoded
 - **Competition**: The project will not be able to stand out as it currently is and other teams can stand out.
+
+
+## HTML Team Analysis:
+### Strengths
+We worked together efficiently using pair programming techniques. We were able to work much faster and utilize each other's skills to resolve issues.
+### Weaknesses
+By working together using pair programming, there were some instances where one of us had to wait for the other member to complete a task so we could continue. This was a little inefficient.
+### Opportunities
+We could have explored other techniques of working together and ways to make our programming more efficient.
+### Threats
+Our pair programming approach may become more difficult to use when we are working on more files and more complicated structures. 
