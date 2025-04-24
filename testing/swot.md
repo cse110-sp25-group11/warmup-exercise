@@ -25,7 +25,7 @@
 - **Asset Management**: There can be a performance or reference issue since the assets are hardcoded
 - **Competition**: The project will not be able to stand out as it currently is and other teams can stand out.
 
-
+<br><br>
 ## HTML Team Analysis:
 ### Strengths
 We worked together efficiently using pair programming techniques. We were able to work much faster and utilize each other's skills to resolve issues.
@@ -35,3 +35,16 @@ By working together using pair programming, there were some instances where one 
 We could have explored other techniques of working together and ways to make our programming more efficient.
 ### Threats
 Our pair programming approach may become more difficult to use when we are working on more files and more complicated structures. 
+
+
+<br><br>
+## Testing Team Analysis:
+### Strengths
+Singe I (Aryan) was the only one on the team, getting things done and finalizing them was a quick, easy, and efficient process
+### Weakness
+Working alone was also a weakness because the tests I made were the ones that would be used without any review.
+### Opportunities
+I can learn a lot about the testing field, all the while learning about JavaScript on the side in case the logic development team needs another hand.
+### Threats
+Since I'm the only one in testing as of right now, I can not afford to miss anything (Because then there is no one to take over).
+
