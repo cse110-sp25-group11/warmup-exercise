@@ -48,3 +48,9 @@ I can learn a lot about the testing field, all the while learning about JavaScri
 ### Threats
 Since I'm the only one in testing as of right now, I can not afford to miss anything (Because then there is no one to take over).
 
+<br><br>
+## Design Team Analysis:
+### Strengths:
+The Design Team consisted of Verania and Khang, and we believed that our design had the strengths with the aesthetic look that we had on Figma. We had a good idea of how our cards were going to look with the color pallete that matched out team's mascot, as well with the minimalistic look of a simple layout that we wanted to have from the beginning.
+### Weakness:
+The Design Team's Weakness was definitely having more features that we wanted to implement to make the game more like the Black Jack games online, but we had a short amount of time to just design the simple functionalities of a simple Black Jack Game.
