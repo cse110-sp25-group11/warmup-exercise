@@ -36,6 +36,16 @@ We could have explored other techniques of working together and ways to make our
 ### Threats
 Our pair programming approach may become more difficult to use when we are working on more files and more complicated structures. 
 
+<br><br>
+## CSS Team Analysis:
+### Strengths
+Mia and I (Alan) worked very well together and teammwork was very well done. We were able to communicate and work through different issues by meeting together outside of class to finish our part of the warmup.
+### Weaknesses
+We both don't have a lot of experience in CSS, therefore putting us at a huge disavantage, especially considering that lab 3 was not done prior to this warmup.
+### Opportunities
+Through both the labs, lectures, and online resources, we can understand CSS on a more profound level and therefore understand how to perform better in our project. 
+### Threats
+There was a lot of misunderstanding from both ourselves and other groups about what CSS is able to do and what it can't. There should be more defined lines on what each team should do in the future. 
 
 <br><br>
 ## Testing Team Analysis:
