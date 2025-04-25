@@ -64,3 +64,7 @@ Since I'm the only one in testing as of right now, I can not afford to miss anyt
 The Design Team consisted of Verania and Khang, and we believed that our design had the strengths with the aesthetic look that we had on Figma. We had a good idea of how our cards were going to look with the color pallete that matched out team's mascot, as well with the minimalistic look of a simple layout that we wanted to have from the beginning.
 ### Weakness:
 The Design Team's Weakness was definitely having more features that we wanted to implement to make the game more like the Black Jack games online, but we had a short amount of time to just design the simple functionalities of a simple Black Jack Game.
+### Opportunities
+If we had more time to work on the warmup, we would have refined/touch up some of the visuals for some of the features we had. For next time, when we have time before we send our design to the html and css team, we could conduct surveys to get user feedback on our initial design.
+### Threats
+Having to start early. Without a design/blueprint for our app, other teams can't really start on the code. This means we would need to meet up earlier and brainstorm beforehand so that other teams have enough time to implement our design.
