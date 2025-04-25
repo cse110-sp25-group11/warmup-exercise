@@ -68,3 +68,14 @@ The Design Team's Weakness was definitely having more features that we wanted to
 If we had more time to work on the warmup, we would have refined/touch up some of the visuals for some of the features we had. For next time, when we have time before we send our design to the html and css team, we could conduct surveys to get user feedback on our initial design.
 ### Threats
 Having to start early. Without a design/blueprint for our app, other teams can't really start on the code. This means we would need to meet up earlier and brainstorm beforehand so that other teams have enough time to implement our design.
+
+<br><br>
+## JS Team Analysis:
+### Strengths:
+When assigning tasks and determining which features took priority over others, we evenly distributed the work load. In addition to such, individually, we were able to test one another's code before implementing other features to ensure compatibility.
+### Weakness:
+As a team, we were overdependent on the other teams. (Specifically HTML and CSS) We tried to revolve our code with the current implementations rather than what could be worked on, resulting in multiple minor setbacks that pilled up over time. In addition, some code written could've been cleaned to reduce complexity and redundancy. On the flip side, some functions could've been expanded for the potential of scalability further down the line.
+### Opportunities
+If our team was given more time, the team could've taken more time to write cleaner code and implement features that were missing from the final product. The betting system in particular was a feature that was not implemented due to a lack of time.
+### Threats
+Continue to remain overreliant on other teams and stay passive in the design of the app logistics would result in time wasted. The team needs to take initiative and improve communication with other teams on the web app design visually and logically.
